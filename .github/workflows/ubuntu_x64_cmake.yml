@@ -36,7 +36,7 @@ jobs:
 
       - uses: actions/checkout@v2
         with:
-          repository: newdigate/teensy-x86-audio-stubs
+          repository: newdigate/teensy-audio-x86-stubs
           path: teensy-x86-audio-stubs
 
       - name: download dependencies
@@ -45,8 +45,8 @@ jobs:
       - name: Make and Install Dependencies
         run: |
           cd teensy-x86-stubs && mkdir cmake-build-$BUILD_TYPE && cd cmake-build-$BUILD_TYPE && cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE .. && sudo make install
-          cd teensy-x86-audio-stubs && mkdir cmake-build-$BUILD_TYPE && cd cmake-build-$BUILD_TYPE && cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE .. && sudo make install
           cd teensy-x86-sd-stubs && mkdir cmake-build-$BUILD_TYPE && cd cmake-build-$BUILD_TYPE && cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE .. && sudo make install
+          cd teensy-audio-x86-stubs && mkdir cmake-build-$BUILD_TYPE && cd cmake-build-$BUILD_TYPE && cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE .. && sudo make install
           cat /usr/local/lib/cmake/teensy_x86_stubs/teensy_x86_stubsConfig.cmake
 
       - name: Create Build Environment
