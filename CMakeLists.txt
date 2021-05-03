@@ -33,7 +33,9 @@ if (DEFINED BUILD_FOR_LINUX)
     target_link_libraries(audio_effect_dynamics_example ${teensy_audio_x86_stubs_LIBS})
     target_link_libraries(audio_effect_dynamics_example ${teensy_audio_x86_stubs_soundio_LIBS})
     target_link_libraries(audio_effect_dynamics_example /usr/local/lib/libsoundio.a)
-    target_link_libraries(audio_effect_dynamics_example "-framework CoreServices" "-framework CoreAudio" "-framework Foundation" "-framework AudioUnit")
+    if (APPLE)
+        target_link_libraries(audio_effect_dynamics_example "-framework CoreServices" "-framework CoreAudio" "-framework Foundation" "-framework AudioUnit")
+    endif()
 
 else()
 
