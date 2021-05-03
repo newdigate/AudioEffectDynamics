@@ -37,7 +37,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           repository: newdigate/teensy-audio-x86-stubs
-          path: teensy-x86-audio-stubs
+          path: teensy-audio-x86-stubs
 
       - uses: actions/checkout@v2
         with:
