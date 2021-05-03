@@ -57,7 +57,7 @@ jobs:
         run: cd libsoundio && mkdir cmake-build-$BUILD_TYPE && cd cmake-build-$BUILD_TYPE && cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE .. && sudo make install && cd ../..
 
       - name: Make and Install teensy-audio-x86-stubs
-        run: cd teensy-audio-x86-stubs && mkdir cmake-build-$BUILD_TYPE && cd cmake-build-$BUILD_TYPE && cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE .. && sudo make install && cd ../..
+        run: cd teensy-audio-x86-stubs/src && mkdir cmake-build-$BUILD_TYPE && cd cmake-build-$BUILD_TYPE && cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE .. && sudo make install && cd ../../..
 
       - name: Make and Install teensy-audio-x86-stubs/extras/soundio/src
         run: cd teensy-audio-x86-stubs/extras/soundio/src && mkdir cmake-build-$BUILD_TYPE && cd cmake-build-$BUILD_TYPE && cmake -DCMAKE_BUILD_TYPE=$BUILD_TYPE .. && sudo make install && cd ../../../../..
