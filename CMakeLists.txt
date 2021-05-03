@@ -35,7 +35,11 @@ if (DEFINED BUILD_FOR_LINUX)
     target_link_libraries(audio_effect_dynamics_example /usr/local/lib/libsoundio.a)
     if (APPLE)
         target_link_libraries(audio_effect_dynamics_example "-framework CoreServices" "-framework CoreAudio" "-framework Foundation" "-framework AudioUnit")
+    else(LINUX)
+        target_link_libraries(audio_effect_dynamics_example "-pthread")
     endif()
+
+    set(CMAKE_VERBOSE_MAKEFILE 1)
 
 else()
 
@@ -46,5 +50,4 @@ else()
             "${CMAKE_COMMAND}" -P "${CMAKE_CURRENT_SOURCE_DIR}/../cmake/install_arduino_library.cmake")
 
     teensy_add_executable(main main.cpp effect_dynamics.cpp)
-    set(CMAKE_VERBOSE_MAKEFILE 1)
 endif()
