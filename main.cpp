@@ -29,11 +29,7 @@ void setup() {
     raw.play("original.raw");
     dynamics.makeupGain(6.0f);
     queue.begin();
-    #ifdef BUILD_FOR_LINUX
-    file = SD.open("compressed.raw", xO_WRITE);
-    #else
     file = SD.open("compressed.raw", O_WRITE);
-    #endif
 }
 
 void loop() {
